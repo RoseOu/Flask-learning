@@ -11,14 +11,14 @@
 
 ***
 
-### Part one: Flask基本知识点总结
+### Part 1: Flask基本知识点总结
 
 待加入
 
-### Part two: Play with Flask
+### Part 2: Play with Flask
 
 待加入
 
-### Part three: Flask源码阅读笔记
+### Part 3: Flask源码阅读笔记
 
 待加入
