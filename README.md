@@ -14,7 +14,7 @@
 ### Part 1: Flask基本知识点总结
 
 [Chapter1: Flask简介及安装](http://roseou.github.io/2016/05/08/flasksetup/)  
-[Chapter2: 路由和试图函数](http://roseou.github.io/2016/05/08/flaskroute/)
+[Chapter2: 路由和试图函数](http://roseou.github.io/2016/05/08/flaskroute/)  
 待更新
 
 ### Part 2: Play with Flask
@@ -27,4 +27,5 @@
 
 ***
 ### Others:Flask学习资源
+
 待加入
