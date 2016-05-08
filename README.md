@@ -26,6 +26,6 @@
 待加入
 
 ***
-### Others:Flask学习资源
+### Others: Flask学习资源
 
 待加入
