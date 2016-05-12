@@ -16,7 +16,8 @@
 
 Chapter1: [Flask简介及安装](http://roseou.github.io/2016/05/08/setup/)  
 
-Chapter2: [路由和试图函数](http://roseou.github.io/2016/05/08/route/)   
+Chapter2: 路由
+* session1: [路由与视图函数](http://roseou.github.io/2016/05/08/route/)   
 
 Chapter3: 模板  
 * session1: [用Jinja2渲染模板](http://roseou.github.io/2016/05/10/templates/)  
