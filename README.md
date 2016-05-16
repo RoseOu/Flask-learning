@@ -17,13 +17,14 @@
 Chapter1: [Flask简介及安装](http://roseou.github.io/2016/05/08/setup/)  
 
 Chapter2: 路由
-* session1: [路由与视图函数](http://roseou.github.io/2016/05/08/route/)  
-* session2: [请求与响应](http://roseou.github.io/2016/05/13/context/)  
+* 2.1: [路由与视图函数](http://roseou.github.io/2016/05/08/route/)  
+* 2.2: [请求与响应](http://roseou.github.io/2016/05/13/context/)  
+* 2.3: [使用Flask-Script扩展支持命令行选项](http://roseou.github.io/2016/05/15/script/)  
 待更新
 
 Chapter3: 模板  
-* session1: [用Jinja2渲染模板](http://roseou.github.io/2016/05/10/templates/)  
-* session2: [错误页面](http://roseou.github.io/2016/05/11/wrongpage/)  
+* 3.1: [用Jinja2渲染模板](http://roseou.github.io/2016/05/10/templates/)  
+* 3.2: [错误页面](http://roseou.github.io/2016/05/11/wrongpage/)  
 待更新
 
 ### Part 2: Play with Flask
