@@ -20,12 +20,13 @@ Chapter2: 路由
 * 2.1: [路由与视图函数](http://roseou.github.io/2016/05/08/route/)  
 * 2.2: [请求与响应](http://roseou.github.io/2016/05/13/context/)  
 * 2.3: [使用Flask-Script扩展支持命令行选项](http://roseou.github.io/2016/05/15/script/)  
-待更新
+待完善
 
 Chapter3: 模板  
 * 3.1: [用Jinja2渲染模板](http://roseou.github.io/2016/05/10/templates/)  
 * 3.2: [错误页面](http://roseou.github.io/2016/05/11/wrongpage/)   
 * 3.3: [(强大的)模板继承](http://roseou.github.io/2016/05/17/base/)  
+* 3.4：[Flask学习教程 Part1 3.5:静态文件的引用](http://roseou.github.io/2016/05/21/static/)  
 待更新
 
 ### Part 2: Play with Flask
