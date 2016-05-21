@@ -26,7 +26,7 @@ Chapter3: 模板
 * 3.1: [用Jinja2渲染模板](http://roseou.github.io/2016/05/10/templates/)  
 * 3.2: [错误页面](http://roseou.github.io/2016/05/11/wrongpage/)   
 * 3.3: [(强大的)模板继承](http://roseou.github.io/2016/05/17/base/)  
-* 3.4：[Flask学习教程 Part1 3.5:静态文件的引用](http://roseou.github.io/2016/05/21/static/)  
+* 3.4：[静态文件的引用](http://roseou.github.io/2016/05/21/static/)  
 待更新
 
 ### Part 2: Play with Flask
