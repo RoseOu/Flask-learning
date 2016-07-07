@@ -27,7 +27,7 @@ Chapter3: 模板
 * 3.2: [错误页面](http://roseou.github.io/2016/05/11/wrongpage/)   
 * 3.3: [(强大的)模板继承](http://roseou.github.io/2016/05/17/base/)  
 * 3.4: [使用Flask-Bootstrap集成Bootstrap](http://roseou.github.io/2016/05/17/bootstrap/) 
-* 3.5: [静态文件的引用](http://roseou.github.io/2016/05/21/static/) 
+* 3.5: [静态文件的引用](http://roseou.github.io/2016/05/21/static/)  
 待完善 
 
 Chapter4: Web表单
