@@ -31,8 +31,8 @@ Chapter3: 模板
 待完善 
 
 Chapter4: Web表单
-* 4.1: [表单和表单类](http://roseou.github.io/2016/06/20/form/) 
-* 4.2: [表单处理](http://roseou.github.io/2016/07/07/formhtml/) 
+* 4.1: [表单和表单类](http://roseou.github.io/2016/06/20/form/)  
+* 4.2: [表单处理](http://roseou.github.io/2016/07/07/formhtml/)  
 待更新 
 
 ### Part 2: Play with Flask
