@@ -17,7 +17,7 @@
 Chapter1: [Flask简介及安装](http://roseou.github.io/2016/05/08/setup/)   
 
 Chapter2: 路由
-* 2.1: [路由与视图函数](http://roseou.github.io/2016/05/08/route/)  
+* 2.1: [路由与视图函数](http://roseou.github.io/2016/05/08/routing/)  
 * 2.2: [请求与响应](http://roseou.github.io/2016/05/13/context/)  
 * 2.3: [使用Flask-Script扩展支持命令行选项](http://roseou.github.io/2016/05/15/script/)  
 待完善
