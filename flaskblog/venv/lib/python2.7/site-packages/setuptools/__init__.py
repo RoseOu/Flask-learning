@@ -32,6 +32,7 @@ lib2to3_fixer_packages = ['lib2to3.fixes']
 
 
 class PackageFinder(object):
+
     @classmethod
     def find(cls, where='.', exclude=(), include=('*',)):
         """Return a list all Python packages found within directory 'where'
@@ -108,16 +109,20 @@ class PackageFinder(object):
         """
         return lambda name: any(fnmatchcase(name, pat=pat) for pat in patterns)
 
+
 class PEP420PackageFinder(PackageFinder):
+
     @staticmethod
     def _looks_like_package(path):
         return True
+
 
 find_packages = PackageFinder.find
 
 setup = distutils.core.setup
 
 _Command = _get_unpatched(_Command)
+
 
 class Command(_Command):
     __doc__ = _Command.__doc__
@@ -136,6 +141,7 @@ class Command(_Command):
         cmd = _Command.reinitialize_command(self, command, reinit_subcommands)
         vars(cmd).update(kw)
         return cmd
+
 
 # we can't patch distutils.cmd, alas
 distutils.core.Command = Command

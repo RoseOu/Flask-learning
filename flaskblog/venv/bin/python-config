@@ -1,4 +1,4 @@
-#!/Users/rose/rose/playwithflask/venv/bin/python
+#!/Users/rose/rose/flaskblog/one/venv/bin/python
 
 import sys
 import getopt
