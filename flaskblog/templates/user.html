@@ -1,5 +1,13 @@
-{% if name %}
-    <h1>Hello, {{ name }}!</h1>
-{% else %}
-    <h1>Hello, Stranger!</h1>
-{% endif %}
+{% extends "base.html" %}
+
+{% block title %} - User - {% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    {% if name %}
+        <h1>Hello, {{ name }}!</h1>   
+    {% else %}
+        <h1>Hello, Stranger!</h1>
+    {% endif %}
+</div>
+{% endblock %}
