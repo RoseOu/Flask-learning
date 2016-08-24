@@ -18,13 +18,28 @@
             <ul class="nav navbar-nav">
                 <li><a href="/">Home</a></li>
             </ul>
+            <ul class="nav navbar-nav navbar-right">
+                {% if current_user.is_authenticated %}
+                <a href="{{ url_for('auth.logout') }}" class="btn btn-default">Sign Out</a>
+                {% else %}
+                <a href="{{ url_for('auth.login') }}" class="btn btn-success">Sign In</a>
+                <a href="{{ url_for('auth.register') }}" class="btn btn-info">Sign up</a>
+                {% endif %}
+            </ul>
         </div>
     </div>
 </div>
 {% endblock %}
 
+
 {% block content %}
 <div class="container">
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-danger">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ message }}
+    </div>
+    {% endfor %}
     {% block page_content %}{% endblock %}
 </div>
 {% endblock %}
