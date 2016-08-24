@@ -1,13 +1,19 @@
 {% extends "base.html" %}
 
-{% block title %} - User - {% endblock %}
+{% block title %}Flasky - {{ user.username }}{% endblock %}
 
 {% block page_content %}
 <div class="page-header">
-    {% if name %}
-        <h1>Hello, {{ name }}!</h1>   
-    {% else %}
-        <h1>Hello, Stranger!</h1>
-    {% endif %}
+        <h1>{{ user.username }}</h1>
+        {% if user.name or user.location %}
+        <p>
+            {% if user.name %}{{ user.name }}<br>{% endif %}
+            {% if user.location %}
+                From <a href="http://maps.google.com/?q={{ user.location }}">{{ user.location }}</a><br>
+            {% endif %}
+        </p>
+        {% endif %}
+        {% if user.about_me %}<p>{{ user.about_me }}</p>{% endif %}
+
 </div>
 {% endblock %}
