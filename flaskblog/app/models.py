@@ -40,6 +40,12 @@ class Role(db.Model):
     def __repr__(self):
         return '<Role %r>' % self.name
 
+class Post(db.Model):                  ##
+    __tablename__ = 'posts'
+    id = db.Column(db.Integer, primary_key=True)
+    body = db.Column(db.Text)
+    author_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+
 class User(UserMixin, db.Model):          
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
@@ -50,6 +56,7 @@ class User(UserMixin, db.Model):
     location = db.Column(db.String(64))
     about_me = db.Column(db.Text())                  
     role_id = db.Column(db.Integer, db.ForeignKey('roles.id'))
+    posts = db.relationship('Post', backref='author', lazy='dynamic')    #
 
     @property                 
     def password(self):
@@ -79,6 +86,7 @@ class User(UserMixin, db.Model):
 
     def __repr__(self):
         return '<User %r>' % self.username
+
 
 class AnonymousUser(AnonymousUserMixin):        #
     def can(self, permissions):
