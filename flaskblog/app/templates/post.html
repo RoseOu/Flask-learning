@@ -5,4 +5,11 @@
 
 {% block page_content %}
 {% include '_posts.html' %}
+<h4 id="comments">Comments</h4>
+{% if current_user.can(Permission.COMMENT) %}
+<div class="comment-form">
+    {{ wtf.quick_form(form) }}
+</div>
+{% include '_comments.html' %}
+{% endif %}
 {% endblock %}

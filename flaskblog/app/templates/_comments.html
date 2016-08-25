@@ -1,0 +1,12 @@
+<ul class="comments">
+    {% for comment in comments %}
+    <li class="comment">
+        <div class="comment-content">
+            <div class="comment-author"><a href="{{ url_for('.user', username=comment.author.username) }}">{{ comment.author.username }}</a></div>
+            <div class="comment-body">
+                        {{ comment.body }}
+            </div>
+        </div>
+    </li>
+    {% endfor %}
+</ul>

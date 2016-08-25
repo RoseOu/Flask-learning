@@ -1,8 +1,8 @@
 from flask import Flask, render_template,session,redirect,url_for,abort, flash  
 from . import main
-from .forms import NameForm, EditProfileForm, PostForm   
+from .forms import NameForm, EditProfileForm, PostForm, CommentForm  #
 from .. import db
-from ..models import User, Permission, Post         #
+from ..models import User, Permission, Post, Comment         #
 from flask.ext.login import login_required, current_user
 
 
@@ -44,7 +44,17 @@ def edit_profile():
 @main.route('/post/<int:id>', methods=['GET', 'POST'])
 def post(id):
     post = Post.query.get_or_404(id)
-    return render_template('post.html', posts=[post])
+    form = CommentForm()
+    if form.validate_on_submit():
+        comment = Comment(body=form.body.data,
+                          post=post,
+                          author=current_user._get_current_object())
+        db.session.add(comment)
+        flash('Your comment has been published.')
+        return redirect(url_for('.post', id=post.id, page=-1))
+    comments = Comment.query.all()
+    return render_template('post.html', posts=[post], form=form,
+                           comments=comments)
 
 @main.route('/edit/<int:id>', methods=['GET', 'POST'])
 @login_required

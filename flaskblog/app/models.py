@@ -45,6 +45,7 @@ class Post(db.Model):                  ##
     id = db.Column(db.Integer, primary_key=True)
     body = db.Column(db.Text)
     author_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    comments = db.relationship('Comment', backref='post', lazy='dynamic')    #
 
 class User(UserMixin, db.Model):          
     __tablename__ = 'users'
@@ -56,7 +57,8 @@ class User(UserMixin, db.Model):
     location = db.Column(db.String(64))
     about_me = db.Column(db.Text())                  
     role_id = db.Column(db.Integer, db.ForeignKey('roles.id'))
-    posts = db.relationship('Post', backref='author', lazy='dynamic')    #
+    posts = db.relationship('Post', backref='author', lazy='dynamic')  
+    comments = db.relationship('Comment', backref='author', lazy='dynamic')  #
 
     @property                 
     def password(self):
@@ -86,6 +88,21 @@ class User(UserMixin, db.Model):
 
     def __repr__(self):
         return '<User %r>' % self.username
+
+class Comment(db.Model):
+    __tablename__ = 'comments'
+    id = db.Column(db.Integer, primary_key=True)
+    body = db.Column(db.Text)
+    body_html = db.Column(db.Text)
+    author_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    post_id = db.Column(db.Integer, db.ForeignKey('posts.id'))
+
+    @staticmethod
+    def on_changed_body(target, value, oldvalue, initiator):
+        allowed_tags = ['a', 'abbr', 'acronym', 'b', 'code', 'em', 'i',
+                        'strong']
+
+db.event.listen(Comment.body, 'set', Comment.on_changed_body)
 
 
 class AnonymousUser(AnonymousUserMixin):        #
