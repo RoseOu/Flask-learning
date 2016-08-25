@@ -22,7 +22,7 @@ def user(username):
     user = User.query.filter_by(username=username).first()
     if user is None:
         abort(404)
-    posts = user.posts.all()        ##
+    posts = user.posts.all()       
     return render_template('user.html', user=user, posts=posts)
 
 @main.route('/edit-profile', methods=['GET', 'POST'])
@@ -40,5 +40,10 @@ def edit_profile():
     form.location.data = current_user.location
     form.about_me.data = current_user.about_me
     return render_template('edit_profile.html', form=form)
+
+@main.route('/post/<int:id>', methods=['GET', 'POST'])
+def post(id):
+    post = Post.query.get_or_404(id)
+    return render_template('post.html', posts=[post])
 
 
