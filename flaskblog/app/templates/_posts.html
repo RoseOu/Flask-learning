@@ -7,6 +7,11 @@
                 {{ post.body }}
             </div>
             <div class="post-footer">
+                {% if current_user == post.author %}
+                <a href="{{ url_for('.edit', id=post.id) }}">
+                    <span class="label label-primary">Edit</span>
+                </a>
+                {% endif %}
                 <a href="{{ url_for('.post', id=post.id) }}">
                     <span class="label label-success">Link</span>
                 </a>
