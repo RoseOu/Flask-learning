@@ -52,7 +52,7 @@ def post(id):
         db.session.add(comment)
         flash('Your comment has been published.')
         return redirect(url_for('.post', id=post.id, page=-1))
-    comments = Comment.query.all()
+    comments = Comment.query.filter_by(post=post).all()
     return render_template('post.html', posts=[post], form=form,
                            comments=comments)
 
