@@ -15,7 +15,3 @@ class EditProfileForm(Form):                          #
 class PostForm(Form):
     body = TextAreaField('What is on your mind?', validators=[Required()])
     submit = SubmitField('Submit')
-
-class CommentForm(Form):
-    body = StringField('Write down your comment:', validators=[Required()])
-    submit = SubmitField('Submit')
