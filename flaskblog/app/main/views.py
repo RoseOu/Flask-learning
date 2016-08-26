@@ -1,8 +1,8 @@
 from flask import Flask, render_template,session,redirect,url_for,abort, flash  
 from . import main
-from .forms import NameForm, EditProfileForm, PostForm   
+from .forms import NameForm, EditProfileForm, PostForm, CommentForm  #
 from .. import db
-from ..models import User, Permission, Post         #
+from ..models import User, Permission, Post, Comment         #
 from flask.ext.login import login_required, current_user
 
 
@@ -22,7 +22,7 @@ def user(username):
     user = User.query.filter_by(username=username).first()
     if user is None:
         abort(404)
-    posts = user.posts.all()        ##
+    posts = user.posts.all()       
     return render_template('user.html', user=user, posts=posts)
 
 @main.route('/edit-profile', methods=['GET', 'POST'])
@@ -41,4 +41,33 @@ def edit_profile():
     form.about_me.data = current_user.about_me
     return render_template('edit_profile.html', form=form)
 
+@main.route('/post/<int:id>', methods=['GET', 'POST'])
+def post(id):
+    post = Post.query.get_or_404(id)
+    form = CommentForm()
+    if form.validate_on_submit():
+        comment = Comment(body=form.body.data,
+                          post=post,
+                          author=current_user._get_current_object())
+        db.session.add(comment)
+        flash('Your comment has been published.')
+        return redirect(url_for('.post', id=post.id, page=-1))
+    comments = Comment.query.all()
+    return render_template('post.html', posts=[post], form=form,
+                           comments=comments)
 
+@main.route('/edit/<int:id>', methods=['GET', 'POST'])
+@login_required
+def edit(id):
+    post = Post.query.get_or_404(id)
+    if current_user != post.author and not current_user.can(Permission.ADMINISTER):
+        abort(403)
+    form = PostForm()
+    if form.validate_on_submit():
+        post.body = form.body.data
+        db.session.add(post)
+        flash('The post has been updated.')
+        return redirect(url_for('.post', id=post.id))
+    form.body.data = post.body
+    return render_template('edit_post.html', form=form)
+    

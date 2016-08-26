@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
-{% import "_macros.html" as macros %}
 
 {% block title %}Flasky - Post{% endblock %}
 
@@ -11,11 +10,6 @@
 <div class="comment-form">
     {{ wtf.quick_form(form) }}
 </div>
-{% endif %}
 {% include '_comments.html' %}
-{% if pagination %}
-<div class="pagination">
-    {{ macros.pagination_widget(pagination, '.post', fragment='#comments', id=posts[0].id) }}
-</div>
 {% endif %}
 {% endblock %}
